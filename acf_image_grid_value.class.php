@@ -65,7 +65,7 @@ class acf_image_grid_value {
 		$key = $x.','.$y;
 
 		// Check if the cell is locked
-		if ( isset($this->field['locked']->$key) && $this->field['locked']->$key ) {
+		if ( isset($this->field['locked'][$key]) && $this->field['locked'][$key] ) {
 			return (object) array(
 				'status' => 'locked',
 				'image'  => null,
