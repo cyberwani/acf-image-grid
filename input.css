@@ -1,0 +1,196 @@
+.acf-image-grid-ui {
+	position: relative;
+	border-style: solid;
+	border-color: #dfdfdf;
+	border-width: 1px 0 0 1px;
+
+}
+
+.acf-image-grid-ui .acf-image-grid-cell {
+	position: absolute;
+	width: 119px;
+	height: 119px;
+	background-color: #fff;
+	border-style: solid;
+	border-color: #dfdfdf;
+	border-width: 0 1px 1px 0;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .locked {
+	width: 120px;
+	height: 120px;
+	line-height: 120px;
+	text-align: center;
+	background-color: #dfdfdf;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .empty,
+.acf-image-grid-ui .acf-image-grid-cell .image,
+.acf-image-grid-ui .acf-image-grid-cell.status-filled-overflow {
+	display: none;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell.status-empty .empty,
+.acf-image-grid-ui .acf-image-grid-cell.status-filled .image {
+	display: block;
+}
+
+
+.acf-image-grid-ui .acf-image-grid-cell.status-filled .image {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ie-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	background-position: 50% 50%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .action-menu {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	opacity: 0;
+	transition: 0.3s opacity;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell:hover .action-menu,
+.acf-image-grid-ui .acf-image-grid-cell .action-menu.open  {
+	opacity: 1;
+	z-index: 11;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell.resizing .action-menu {
+	opacity: 0;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .action-menu ul {
+	display: none;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .action-menu.open ul {
+	display: block;
+	position: absolute;
+	right: 0;
+	width: 95px;
+	background-color: #333;
+	color: #fff;
+	margin: 0;
+	font-size: 12px;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .action-menu.open ul li {
+	padding: 3px 5px;
+	margin: 0;
+	cursor: pointer;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .action-menu.open ul li:hover {
+	background-color: #000;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .action-menu a.toggle {
+	background-color: #333;
+	color: #fff;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+	display: block;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .action-menu a.toggle:hover {
+	background-color: #000;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: solid 2px #2ea2cc;
+	z-index: 10;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell.resizing,
+.acf-image-grid-ui .acf-image-grid-cell.moving {
+	z-index: 20;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell:hover .outline,
+.acf-image-grid-ui .acf-image-grid-cell.resizing .outline,
+.acf-image-grid-ui .acf-image-grid-cell.moving .outline {
+	display: block;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell.moving .outline {
+	cursor: move;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: #2ea2cc;
+	margin-top: -5px;
+	margin-left: -5px;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-nw {
+	top: 0;
+	left: 0;
+	cursor: nw-resize;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-n {
+	top: 0;
+	left: 50%;
+	cursor: n-resize;
+
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-ne {
+	top: 0;
+	left: 100%;
+	cursor: ne-resize;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-w {
+	top: 50%;
+	left: 0;
+	cursor: w-resize;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-e {
+	top: 50%;
+	left: 100%;
+	cursor: e-resize;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-sw {
+	top: 100%;
+	left: 0;
+	cursor: sw-resize;
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-s {
+	top: 100%;
+	left: 50%;
+	cursor: s-resize;
+
+}
+
+.acf-image-grid-ui .acf-image-grid-cell .outline .handle-se {
+	top: 100%;
+	left: 100%;
+	cursor: se-resize;
+}
