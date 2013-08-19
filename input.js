@@ -100,9 +100,10 @@
 	// Setup the View for using the WordPress media manager
   $( document ).ready( function() {
 		acfImageGrid.mediaFrame = wp.media({
-			//title : dfippt_L10n.manager_title,
+			title : 'Insert image into grid',
 			multiple : false,
 			library : { type : 'image' },
+			button : { text : 'Insert' }
 			//button : { text : dfippt_L10n.manager_button }
 		});
 	});
@@ -155,12 +156,13 @@
 			var attachment;
 			var selection = acfImageGrid.mediaFrame.state().get('selection');
 			var image = this.model.getCell( this._popupFor.x, this._popupFor.y );
-			var id = image && image.image ? image.image.id : null; // The WP image ID
 
-			attachment = wp.media.attachment(id);
-			attachment.fetch();
+			if ( image && image.image ) {
+				attachment = wp.media.attachment(image.image.id);
+				attachment.fetch();
+			}
 
-			selection.add(attachment ? [ attachment ] : []);
+			selection.add( attachment ? [ attachment ] : [] );
 		},
 
 		/**
@@ -214,7 +216,7 @@
 			var images = acfImageGrid.mediaFrame.state().get('selection');
 
 			// set the images
-			images.each(_.bind(function (image) {	
+			images.forEach(_.bind(function (image) {	
 				// Set value and copy the width and height
 				var oldCell = this.model.getCell( this._popupFor.x, this._popupFor.y );
 				this.model.setCell( this._popupFor.x, this._popupFor.y, oldCell.w, oldCell.h, 'filled', image.attributes );
@@ -227,11 +229,12 @@
 		 *
 		 * This responses to changes to the model to update the UI.
 		 */
-		onCellChange: function( model, changes ) {
+		onCellChange: function( model ) {
+			var changes = model.changedAttributes();
 			var image, cellEl;
 
 			// changes.changes is a hash of cells that have changed
-			for( var key in changes.changes ) {
+			for( var key in changes ) {
 				// The cell image data
 				image = this.model.get( key );
 
